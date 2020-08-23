@@ -3,7 +3,7 @@ import { Formik, Form, Field } from 'formik';
 import { Button, LinearProgress, Box } from '@material-ui/core';
 import { TextField } from 'formik-material-ui';
 import * as Yup from 'yup';
-import axios from 'axios';
+import { getVehicles } from '../../util/APIUtils';
 
 const LoginSchema = Yup.object().shape({
 	email: Yup.string().email('Enter a valid email').required('Email is required'),
@@ -19,7 +19,7 @@ function Login() {
 			onSubmit={(values, { setSubmitting }) => {
 				const sendPostRequest = async () => {
 					try {
-						const resp = await axios.post('http://localhost:5000/api/login', values);
+						const resp = await getVehicles(values);
 						console.log(resp.data);
 					} catch (err) {
 						// Handle Error Here
