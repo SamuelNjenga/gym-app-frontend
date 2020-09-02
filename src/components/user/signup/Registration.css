@@ -1,0 +1,14 @@
+.registration-container {
+    max-width: 420px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding-bottom: 40px;
+    background-color: cornsilk;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.registration-form-button {
+    color: burlywood;
+}
