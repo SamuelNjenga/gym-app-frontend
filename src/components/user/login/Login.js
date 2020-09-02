@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import { Formik, Form, Field } from 'formik';
 import { Button, Box } from '@material-ui/core';
 import ColoredLinearProgress from '../ColoredLinearProgress';
@@ -6,6 +6,7 @@ import { TextField } from 'formik-material-ui';
 import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
 import { postLogin } from '../../../util/APIUtils';
+import { LoginContext } from './LoginContext';
 import './Login.css';
 
 const LoginSchema = Yup.object().shape({
@@ -14,6 +15,8 @@ const LoginSchema = Yup.object().shape({
 });
 function Login() {
 	const history = useHistory();
+	const { isAuthenticated } = useContext(LoginContext);
+	const [ isAuthenticatedd, setAuthentication ] = isAuthenticated;
 	return (
 		<div className="login-container">
 			<Formik
@@ -26,7 +29,12 @@ function Login() {
 						try {
 							const resp = await postLogin(values);
 							console.log(resp.data);
-							history.push('/');
+							if(resp.status === 200){
+								history.push('/');
+								localStorage.setItem('token', resp.data.accessToken);
+								setAuthentication(true);
+							}
+							
 						} catch (err) {
 							console.error(err);
 						}
