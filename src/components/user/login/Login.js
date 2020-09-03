@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom';
 import { postLogin } from '../../../util/APIUtils';
 import { LoginContext } from './LoginContext';
 import './Login.css';
+import Navigation from '../../navigation/Navigation';
 
 const LoginSchema = Yup.object().shape({
 	email: Yup.string().email('Enter a valid email').required('Email is required'),
@@ -15,9 +16,11 @@ const LoginSchema = Yup.object().shape({
 });
 function Login() {
 	const history = useHistory();
-	const { isAuthenticated } = useContext(LoginContext);
-	const [ isAuthenticatedd, setAuthentication ] = isAuthenticated;
+	const { isAuthenticate } = useContext(LoginContext);
+	const [ isAuthenticated, setAuthentication ] = isAuthenticate;
 	return (
+		<>
+		<Navigation />
 		<div className="login-container">
 			<Formik
 				initialValues={{
@@ -28,13 +31,13 @@ function Login() {
 					const sendPostRequest = async () => {
 						try {
 							const resp = await postLogin(values);
-							console.log(resp.data);
-							if(resp.status === 200){
+							if (resp.status === 200) {
 								history.push('/');
 								localStorage.setItem('token', resp.data.accessToken);
 								setAuthentication(true);
+							} else {
+								alert('Wrong credentials');
 							}
-							
 						} catch (err) {
 							console.error(err);
 						}
@@ -84,6 +87,7 @@ function Login() {
 				)}
 			</Formik>
 		</div>
+		</>
 	);
 }
 export default Login;

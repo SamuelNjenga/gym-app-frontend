@@ -4,7 +4,7 @@ export const LoginProvider = (props) => {
 	const [ isAuthenticated, setAuthentication ] = useState(localStorage.getItem('token') ? true : false);
 
 	return (
-		<LoginContext.Provider value={{ isAuthenticated: [ isAuthenticated, setAuthentication ] }}>
+		<LoginContext.Provider value={{ isAuthenticate: [ isAuthenticated, setAuthentication ] }}>
 			{props.children}
 		</LoginContext.Provider>
 	);

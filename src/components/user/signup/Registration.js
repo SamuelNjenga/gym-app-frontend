@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
 import { postUserRegistration } from '../../../util/APIUtils';
 import './Registration.css';
+import Navigation from '../../navigation/Navigation';
 
 const RegistrationSchema = Yup.object().shape({
 	email: Yup.string().email('Enter a valid email').required('Email is required'),
@@ -17,6 +18,9 @@ const RegistrationSchema = Yup.object().shape({
 function Registration() {
 	const history = useHistory();
 	return (
+		<>
+			<Navigation />
+		
 		<div className="registration-container">
 			<Formik
 				initialValues={{
@@ -133,6 +137,7 @@ function Registration() {
 				)}
 			</Formik>
 		</div>
+		</>
 	);
 }
 export default Registration;
