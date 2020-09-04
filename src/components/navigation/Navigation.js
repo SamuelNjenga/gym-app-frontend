@@ -41,7 +41,7 @@ const Menu = styled.div`
 `;
 
 const Navigation = () => {
-	const { isAuthenticate } = useContext(LoginContext);
+	const  {isAuthenticate}  = useContext(LoginContext);
 	const [ isAuthenticated, setAuthentication ] = isAuthenticate;
 	return (
 		<div>

@@ -4,8 +4,8 @@ import { LoginContext } from '../login/LoginContext';
 const Logout = () => {
 	let history = useHistory();
 	const { isAuthenticate } = useContext(LoginContext);
-    const [ isAuthenticated, setAuthentication ] = isAuthenticate;
-    
+	const [ isAuthenticated, setAuthentication ] = isAuthenticate;
+
 	useEffect(() => {
 		setAuthentication(false);
 		localStorage.removeItem('token');

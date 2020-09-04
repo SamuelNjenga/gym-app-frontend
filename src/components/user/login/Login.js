@@ -18,6 +18,8 @@ function Login() {
 	const history = useHistory();
 	const { isAuthenticate } = useContext(LoginContext);
 	const [ isAuthenticated, setAuthentication ] = isAuthenticate;
+	//const  isAuthenticate  = useContext(LoginContext);
+	//const [ isAuthenticated, setAuthentication ] = isAuthenticate;
 	return (
 		<>
 		<Navigation />
