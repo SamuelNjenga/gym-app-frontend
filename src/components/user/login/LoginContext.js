@@ -1,10 +1,13 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState ,useContext} from 'react';
 export const LoginContext = createContext();
+export function useLogin () {
+	return useContext(LoginContext)
+  }
 export const LoginProvider = (props) => {
 	const [ isAuthenticated, setAuthentication ] = useState(localStorage.getItem('token') ? true : false);
 
 	return (
-		<LoginContext.Provider value={{ isAuthenticate: [ isAuthenticated, setAuthentication ] }}>
+		<LoginContext.Provider value={{  isAuthenticated, setAuthentication }}>
 			{props.children}
 		</LoginContext.Provider>
 	);

@@ -29,7 +29,7 @@ const Equipment = () => {
       <ContentBox float="left">My Gym Application Equipments</ContentBox>
       <div className="equipment-button">
       <Link to="/viewequipments" style={{ textDecoration: 'none' }}>
-      <Button variant="contained">View Availabe Gym Equipments</Button>
+      <Button variant="contained">View Available Gym Equipments</Button>
 	    </Link>
       <Link to="/uploadequipment" style={{ textDecoration: 'none' }}>
       <Button variant="contained">Add an Equipment</Button>

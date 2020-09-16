@@ -7,7 +7,8 @@ import { LoginProvider } from './components/user/login/LoginContext';
 import Logout from './components/user/logout/Logout';
 import Equipment from './components/equipments/Equipment';
 import UploadEquipment from './components/equipments/UploadEquipment';
-import ViewEquipment from './components/equipments/ViewEquipment';
+import ViewEquipment from './components/equipments/ViewEquipmentPicture';
+import EquipmentList from './components/equipments/EquipmentList';
 const App = () => {
 	return (
 		<LoginProvider>
@@ -16,7 +17,8 @@ const App = () => {
 					<Route path="/" exact={true} component={Home} />
 					<Route path="/equipment" exact={true} component={Equipment} />
 					<Route path="/uploadequipment" exact={true} component={UploadEquipment} />
-					<Route path="/viewequipments" exact={true} component={ViewEquipment} />
+					<Route path="/editequipments" exact={true} component={ViewEquipment} />
+					<Route path="/viewequipments" exact={true} component={EquipmentList} />
 					<Route path="/login" exact={true} component={Login} />
 					<Route path="/logout" exact={true} component={Logout} />
 					<Route path="/registration" exact={true} component={Registration} />

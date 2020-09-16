@@ -1,10 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { LoginContext } from '../login/LoginContext';
+import {  useLogin } from '../login/LoginContext';
 const Logout = () => {
 	let history = useHistory();
-	const { isAuthenticate } = useContext(LoginContext);
-	const [ isAuthenticated, setAuthentication ] = isAuthenticate;
+	const { setAuthentication  } = useLogin();
 
 	useEffect(() => {
 		setAuthentication(false);

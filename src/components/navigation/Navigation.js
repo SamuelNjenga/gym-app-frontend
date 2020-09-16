@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import ResponsiveMenu from 'react-responsive-navbar';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaBars, FaWindowClose } from 'react-icons/fa';
-import { LoginContext } from '../user/login/LoginContext';
+import { useLogin} from '../user/login/LoginContext';
 
 const Menu = styled.div`
 	border-bottom: 2px solid MediumPurple;
@@ -41,8 +41,7 @@ const Menu = styled.div`
 `;
 
 const Navigation = () => {
-	const  {isAuthenticate}  = useContext(LoginContext);
-	const [ isAuthenticated, setAuthentication ] = isAuthenticate;
+	const  {isAuthenticated}  = useLogin()
 	return (
 		<div>
 			<ResponsiveMenu

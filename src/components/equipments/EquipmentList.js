@@ -1,15 +1,14 @@
 import React,{useEffect,useState} from 'react'
 import Navigation from '../navigation/Navigation'
 import styled from 'styled-components';
-import { makeStyles } from '@material-ui/core/styles';
 import { getEquipments } from '../../util/APIUtils';
 import Grid from '@material-ui/core/Grid';
-import EquipmentItem from './EquipmentItem';
+import Item from './Item';
 
 const ContentBox = styled.div`
 	background-color: white;
 	border: 2px solid MediumPurple;
-  border-radius: 20px;
+    border-radius: 20px;
 	width: 60%;
 	font-size: 15px;
 	padding: 20px;
@@ -23,7 +22,7 @@ const ContentBox = styled.div`
 `;
 
 
-const ViewEquipment = () => {
+const EquipmentList = () => {
 	const [equipments,setEquipments] = useState([])
 	const [loading,setLoading] = useState(true)
 	const fetchEquipments = async () => {
@@ -48,7 +47,7 @@ const ViewEquipment = () => {
 			<Grid container spacing={2} style={{ padding: 24 }}>
 			{equipments.map(equipment => (
 				<Grid key={equipment.id} item xs={12} sm={12} lg={6} xl={6}>
-				<EquipmentItem {...equipment}/>
+				<Item picture={equipment.EquipmentPictures[0].picture} {...equipment} />
 				</Grid>
 			))
 			}
@@ -62,4 +61,4 @@ const ViewEquipment = () => {
   )
 }
 
-export default ViewEquipment
+export default EquipmentList;

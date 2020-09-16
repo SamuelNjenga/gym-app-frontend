@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { Button, Box } from '@material-ui/core';
 import ColoredLinearProgress from '../ColoredLinearProgress';
@@ -6,7 +6,7 @@ import { TextField } from 'formik-material-ui';
 import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
 import { postLogin } from '../../../util/APIUtils';
-import { LoginContext } from './LoginContext';
+import { useLogin } from './LoginContext';
 import './Login.css';
 import Navigation from '../../navigation/Navigation';
 
@@ -16,8 +16,8 @@ const LoginSchema = Yup.object().shape({
 });
 function Login() {
 	const history = useHistory();
-	const { isAuthenticate } = useContext(LoginContext);
-	const [ isAuthenticated, setAuthentication ] = isAuthenticate;
+	const {setAuthentication } = useLogin();
+	//const [  ] = isAuthenticate;
 	//const  isAuthenticate  = useContext(LoginContext);
 	//const [ isAuthenticated, setAuthentication ] = isAuthenticate;
 	return (
