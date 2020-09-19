@@ -15,8 +15,10 @@ import { TrainerProvider } from './components/contexts/TrainerContext';
 import { RoomProvider } from './components/contexts/RoomContext';
 import { DepartmentProvider } from './components/contexts/DepartmentContext';
 import { EquipmentProvider } from './components/contexts/EquipmentContext';
+import { SessionProvider } from './components/contexts/SessionContext';
 const App = () => {
 	return (
+		<SessionProvider>
 		<EquipmentProvider>
 		<DepartmentProvider>
 		<RoomProvider>
@@ -41,6 +43,7 @@ const App = () => {
 		</RoomProvider>
 		</DepartmentProvider>
 		</EquipmentProvider>
+		</SessionProvider>
 	);
 };
 
