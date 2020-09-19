@@ -3,7 +3,7 @@ import ResponsiveMenu from 'react-responsive-navbar';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaBars, FaWindowClose } from 'react-icons/fa';
-import { useLogin} from '../user/login/LoginContext';
+import { useLogin } from '../contexts/LoginContext';
 
 const Menu = styled.div`
 	border-bottom: 2px solid MediumPurple;

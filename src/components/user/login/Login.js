@@ -6,9 +6,9 @@ import { TextField } from 'formik-material-ui';
 import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
 import { postLogin } from '../../../util/APIUtils';
-import { useLogin } from './LoginContext';
 import './Login.css';
 import Navigation from '../../navigation/Navigation';
+import { useLogin } from '../../contexts/LoginContext';
 
 const LoginSchema = Yup.object().shape({
 	email: Yup.string().email('Enter a valid email').required('Email is required'),
@@ -16,7 +16,7 @@ const LoginSchema = Yup.object().shape({
 });
 function Login() {
 	const history = useHistory();
-	const {setAuthentication } = useLogin();
+	const {setAuthentication } = useLogin()
 	//const [  ] = isAuthenticate;
 	//const  isAuthenticate  = useContext(LoginContext);
 	//const [ isAuthenticated, setAuthentication ] = isAuthenticate;

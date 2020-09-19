@@ -1,9 +1,9 @@
 import React, {  useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import {  useLogin } from '../login/LoginContext';
+import { useLogin } from '../../contexts/LoginContext';
 const Logout = () => {
 	let history = useHistory();
-	const { setAuthentication  } = useLogin();
+	const { setAuthentication  } = useLogin()
 
 	useEffect(() => {
 		setAuthentication(false);
