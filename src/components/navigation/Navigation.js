@@ -53,21 +53,30 @@ const Navigation = () => {
 				menu={
 					<Menu>
 						<ul>
-							<Link to="/home" style={{ textDecoration: 'none' }}>
+							<Link to="/" style={{ textDecoration: 'none' }}>
 								<li>Home</li>
 							</Link>
-							<Link to="/home" style={{ textDecoration: 'none' }}>
+							<Link to="/about" style={{ textDecoration: 'none' }}>
 								<li>About</li>
 							</Link>
-							<Link to="/home" style={{ textDecoration: 'none' }}>
+							<Link to="/services" style={{ textDecoration: 'none' }}>
+								<li>Services</li>
+							</Link>
+							<Link to="/contact" style={{ textDecoration: 'none' }}>
 								<li>Contact</li>
 							</Link>
               {isAuthenticated ? (
-                <Link to="/logout" style={{ textDecoration: 'none' }}>
+				<>
+				            <Link to="/session" style={{ textDecoration: 'none' }}>
+								<li>Sessions</li>
+							</Link>
+                            <Link to="/logout" style={{ textDecoration: 'none' }}>
 								<li>Log Out</li>
 							</Link>
+				</>
               ) : (
                 <>
+				
                 <Link to="/login" style={{ textDecoration: 'none' }}>
 								<li>Log In</li>
 							</Link>

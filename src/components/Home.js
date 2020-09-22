@@ -1,9 +1,11 @@
 import React from 'react'
+import Typography from '@material-ui/core/Typography'
 import Navigation from './navigation/Navigation'
 import styled from 'styled-components';
 
 const ContentBox = styled.div`
 	background-color: white;
+	border-radius: 20px;
 	border: 2px solid MediumPurple;
 	width: 60%;
 	font-size: 15px;
@@ -21,9 +23,9 @@ const Home = () => {
   return (
     <div>
     <Navigation />
-      <h1>Home</h1>
-      <ContentBox float="left">My Gym Application</ContentBox>
-			<ContentBox float="right">An interesting software Application</ContentBox>
+      <Typography variant="h4" align="center" component="h4">Bransky Gym And Aerobics</Typography>
+      <ContentBox float="left">Online Gym Application</ContentBox>
+	  <ContentBox float="left">Access Our Services Here</ContentBox>
     </div>
   )
 }

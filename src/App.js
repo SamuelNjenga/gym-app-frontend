@@ -16,8 +16,14 @@ import { RoomProvider } from './components/contexts/RoomContext';
 import { DepartmentProvider } from './components/contexts/DepartmentContext';
 import { EquipmentProvider } from './components/contexts/EquipmentContext';
 import { SessionProvider } from './components/contexts/SessionContext';
+import { UserProvider } from './components/contexts/UserContext';
+import { ProgramProvider } from './components/contexts/ProgramContext';
+import ProgramList from './components/programs/ProgramList';
+import ProgramPictureList from './components/programs/ProgramPictureList';
 const App = () => {
 	return (
+		<ProgramProvider>
+		<UserProvider>
 		<SessionProvider>
 		<EquipmentProvider>
 		<DepartmentProvider>
@@ -27,6 +33,8 @@ const App = () => {
 			<Router>
 				<Switch>
 					<Route path="/" exact={true} component={Home} />
+					<Route path="/programs" exact={true} component={ProgramList} />
+					<Route path="/programs/postpicture" exact={true} component={ProgramPictureList} />
 					<Route path="/session" exact={true} component={ViewSessions} />
 					<Route path="/session/register" component={SessionRegister} />
 					<Route path="/equipment" exact={true} component={Equipment} />
@@ -44,6 +52,8 @@ const App = () => {
 		</DepartmentProvider>
 		</EquipmentProvider>
 		</SessionProvider>
+		</UserProvider>
+		</ProgramProvider>
 	);
 };
 

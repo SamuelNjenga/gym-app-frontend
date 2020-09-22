@@ -24,8 +24,17 @@ export const postTrainersRegistration = async (values) => {
 export const postRoomRegistration = async (values) => {
 	return axios.post(`${API_BASE_URL}/rooms`, values);
 };
+export const postProgramRegistration = async (values) => {
+	return axios.post(`${API_BASE_URL}/programs`, values);
+};
+export const postUserSessionRegistration = async (values) => {
+	return axios.post(`${API_BASE_URL}/userssessions`, values);
+}
 export const getEquipments = async () => {
 	return axios.get(`${API_BASE_URL}/equipments`);
+};
+export const getPrograms = async () => {
+	return axios.get(`${API_BASE_URL}/programs`);
 };
 export const getTrainers = async () => {
 	return axios.get(`${API_BASE_URL}/trainers`);
@@ -38,4 +47,7 @@ export const getRooms = async () => {
 };
 export const getSessions = async () => {
 	return axios.get(`${API_BASE_URL}/sessions`);
+};
+export const getUsersSessions = async () => {
+	return axios.get(`${API_BASE_URL}/userssessions`);
 };

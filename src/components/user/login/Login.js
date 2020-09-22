@@ -9,6 +9,7 @@ import { postLogin } from '../../../util/APIUtils';
 import './Login.css';
 import Navigation from '../../navigation/Navigation';
 import { useLogin } from '../../contexts/LoginContext';
+import { useUser } from '../../contexts/UserContext';
 
 const LoginSchema = Yup.object().shape({
 	email: Yup.string().email('Enter a valid email').required('Email is required'),
@@ -17,9 +18,8 @@ const LoginSchema = Yup.object().shape({
 function Login() {
 	const history = useHistory();
 	const {setAuthentication } = useLogin()
-	//const [  ] = isAuthenticate;
-	//const  isAuthenticate  = useContext(LoginContext);
-	//const [ isAuthenticated, setAuthentication ] = isAuthenticate;
+	const {setUserId,setUserRole,setUserEmail} = useUser()
+	
 	return (
 		<>
 		<Navigation />
@@ -36,6 +36,9 @@ function Login() {
 							if (resp.status === 200) {
 								history.push('/');
 								localStorage.setItem('token', resp.data.accessToken);
+								setUserId(resp.data.data.id)
+								setUserEmail(resp.data.data.email)
+								setUserRole(resp.data.data.role)
 								setAuthentication(true);
 							} else {
 								alert('Wrong credentials');
@@ -78,6 +81,7 @@ function Login() {
 						<Box margin={2}>
 							<Button
 								variant="contained"
+								color="secondary"
 								className="login-form-button"
 								disabled={isSubmitting}
 								onClick={submitForm}
