@@ -7,6 +7,8 @@ import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button'
 import {Image} from 'cloudinary-react'
+import { Link } from 'react-router-dom';
+import MoreOnProgram from './MoreOnProgram';
 
 const useStyles = makeStyles({
 	root: {
@@ -18,9 +20,12 @@ const useStyles = makeStyles({
 	}
 });
 
+
 const Program = ({id,programTitle, programDescription,picture}) => {
 	const classes = useStyles()
-	console.log(picture)
+    const moreInfo = () =>  {
+		localStorage.setItem('prod_id',id)
+	}
     
   return (
     <div>
@@ -37,10 +42,13 @@ const Program = ({id,programTitle, programDescription,picture}) => {
 					</CardContent>
 				</CardActionArea>
 				<CardActions>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
+				{/* <Link to="/programs/more" style={{ textDecoration: 'none' }}> */}
+				<Link to={`/programs/${id}`} style={{ textDecoration: 'none' }}>
+                    <Button size="small" color="primary" onClick={moreInfo}>
+                      Learn More
+                    </Button>
+                </Link>
+                 </CardActions>
 			</Card>
     </div>
   )

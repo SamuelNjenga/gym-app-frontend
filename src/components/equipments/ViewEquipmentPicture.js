@@ -21,9 +21,8 @@ const ContentBox = styled.div`
 	}
 `;
 
-
 const ViewEquipmentPicture = () => {
-	const [equipments,setEquipments] = useState([])
+	const [equipments,setEquipments] =  useState([])
 	const [loading,setLoading] = useState(true)
 	const fetchEquipments = async () => {
 		const res = await  getEquipments()
@@ -38,7 +37,7 @@ const ViewEquipmentPicture = () => {
     <>
     <Navigation />
     <div className="equipment-container">
-	<div>
+	   <div>
     <ContentBox float="left">List of Gym Equipments</ContentBox>
 	</div>
 	<div>

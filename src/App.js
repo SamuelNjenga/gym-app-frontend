@@ -20,6 +20,7 @@ import { UserProvider } from './components/contexts/UserContext';
 import { ProgramProvider } from './components/contexts/ProgramContext';
 import ProgramList from './components/programs/ProgramList';
 import ProgramPictureList from './components/programs/ProgramPictureList';
+import MoreOnProgram from './components/programs/MoreOnProgram';
 const App = () => {
 	return (
 		<ProgramProvider>
@@ -34,6 +35,8 @@ const App = () => {
 				<Switch>
 					<Route path="/" exact={true} component={Home} />
 					<Route path="/programs" exact={true} component={ProgramList} />
+					{/* <Route path="/programs/more" exact={true} component={MoreOnProgram} /> */}
+					<Route path="/programs/:id" exact={true} component={MoreOnProgram} />
 					<Route path="/programs/postpicture" exact={true} component={ProgramPictureList} />
 					<Route path="/session" exact={true} component={ViewSessions} />
 					<Route path="/session/register" component={SessionRegister} />

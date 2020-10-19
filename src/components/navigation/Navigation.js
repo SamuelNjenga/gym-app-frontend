@@ -59,8 +59,8 @@ const Navigation = () => {
 							<Link to="/about" style={{ textDecoration: 'none' }}>
 								<li>About</li>
 							</Link>
-							<Link to="/services" style={{ textDecoration: 'none' }}>
-								<li>Services</li>
+							<Link to="/programs" style={{ textDecoration: 'none' }}>
+								<li>Programs</li>
 							</Link>
 							<Link to="/contact" style={{ textDecoration: 'none' }}>
 								<li>Contact</li>
